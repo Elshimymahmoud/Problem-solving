@@ -11,4 +11,10 @@ for(let i=0;i<arr.length;i++){
 return result;
 
 }
-console.log(SquareRootOrNotToSquareRoot([4,25,9,7,100]));
+// console.log(SquareRootOrNotToSquareRoot([4,25,9,7,100]));
+var searchInsert = function(nums, target) {
+  let l=0
+  let h=nums.lenght;
+  let m=l+h/2;
+  return nums[m]
+};  console.log(searchInsert([1,5,3],5));
