@@ -292,56 +292,98 @@ var plusOne = function (digits) {
 //  console.log(longestCommonPrefix(["flgower","flgow","flgight"]));
 
 
-class node{
-  constructor(data,next=null){
-    this.data=data
-    this.next=next
-  }
-}
-class linkedlist{
-  constructor(){
-    this.head=null
-    this.size=0
-    }
-    addfirst(data){
-   this.head=new node(data,this.head)
-this.size++
-return this.head
-    }
-    addlast(data){
-      const newnode=new node(data)
-      if(!this.head){
-        this.head=newnode
-       }
-       else{
-        let curr=this.head;
-        while(curr.next){
-          curr=curr.next
-        }
-        curr.next=newnode
-    }}
-    }
-   let  li= new linkedlist()
-console.log( li.addfirst(10));
-console.log( li.addfirst(20));
-console.log( li.addfirst(30));
-console.log(li.addlast(50));
+// class node{
+//   constructor(data,next=null){
+//     this.data=data
+//     this.next=next
+//   }
+// }
+// class linkedlist{
+//   constructor(){
+//     this.head=null
+//     this.size=0
+//     }
+//     addfirst(data){
+//    this.head=new node(data,this.head)
+// this.size++
+// return this.head
+//     }
+//     addlast(data){
+//       const newnode=new node(data)
+//       if(!this.head){
+//         this.head=newnode
+//        }
+//        else{
+//         let curr=this.head;
+//         while(curr.next){
+//           curr=curr.next
+//         }
+//         curr.next=newnode
+//     }}
+//     }
+//    let  li= new linkedlist()
+// console.log( li.addfirst(10));
+// console.log( li.addfirst(20));
+// console.log( li.addfirst(30));
+// console.log(li.addlast(50));
 
-var mergeTwoLists = function(list1, list2) {
-  let mergedarr=[]
-  let curr1=list1
-  let curr2=list2
-  let li=new linkedlist()
+// var mergeTwoLists = function(list1, list2) {
+//   let mergedarr=[]
+//   let curr1=list1
+//   let curr2=list2
+//   let li=new linkedlist()
  
-    if(curr1.data<curr2.data){
-     mergeTwoLists=li.addfirst(curr1)
-     for (let i = 0; i < list2.length; i++) {
-      mergeTwoLists.push(li.addlast(list2[i]))
+//     if(curr1.data<curr2.data){
+//      mergeTwoLists=li.addfirst(curr1)
+//      for (let i = 0; i < list2.length; i++) {
+//       mergeTwoLists.push(li.addlast(list2[i]))
       
-     }      }
+//      }      }
       
 
 
-return mergeTwoLists
+// return mergeTwoLists
+// }
+// console.log(mergeTwoLists([1,2,3],[5,3,4]));
+
+
+
+
+//4. Median of Two Sorted Arrays.
+var findMedianSortedArrays = function ( nums1, nums2) {
+let result=0
+  for(let i=0; i<nums2.length;i++){
+
+  nums1.push(nums2[i]);
 }
-console.log(mergeTwoLists([1,2,3],[5,3,4]));
+for(let j=0; j<nums1.length-1;j++){
+ for(let i=0; i<nums1.length-j-1;i++){
+  if (nums1[i]>nums1[i+1]){
+    swap=nums1[i]
+    nums1[i]=nums1[i+1]
+    nums1[i+1]=swap
+    
+    
+  }
+ }
+}
+
+  if(nums1.length%2==0){
+    medin=nums1.length/2
+    result= (nums1[medin]+nums1[medin-1])/2;
+  }
+  else{
+      result=nums1[Math.floor((nums1.length/2))]
+    }
+
+
+
+return result
+ 
+}
+
+
+
+
+
+  console.log(findMedianSortedArrays([1,3],[2,4,5],)) 
