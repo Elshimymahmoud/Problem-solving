@@ -349,41 +349,69 @@ var plusOne = function (digits) {
 
 
 
-//4. Median of Two Sorted Arrays.
-var findMedianSortedArrays = function ( nums1, nums2) {
-let result=0
-  for(let i=0; i<nums2.length;i++){
+// //4. Median of Two Sorted Arrays.
+// var findMedianSortedArrays = function ( nums1, nums2) {
+// let result=0
+//   for(let i=0; i<nums2.length;i++){
 
-  nums1.push(nums2[i]);
-}
-for(let j=0; j<nums1.length-1;j++){
- for(let i=0; i<nums1.length-j-1;i++){
-  if (nums1[i]>nums1[i+1]){
-    swap=nums1[i]
-    nums1[i]=nums1[i+1]
-    nums1[i+1]=swap
+//   nums1.push(nums2[i]);
+// }
+// for(let j=0; j<nums1.length-1;j++){
+//  for(let i=0; i<nums1.length-j-1;i++){
+//   if (nums1[i]>nums1[i+1]){
+//     swap=nums1[i]
+//     nums1[i]=nums1[i+1]
+//     nums1[i+1]=swap
     
     
-  }
- }
-}
+//   }
+//  }
+// }
 
-  if(nums1.length%2==0){
-    medin=nums1.length/2
-    result= (nums1[medin]+nums1[medin-1])/2;
-  }
-  else{
-      result=nums1[Math.floor((nums1.length/2))]
-    }
+//   if(nums1.length%2==0){
+//     medin=nums1.length/2
+//     result= (nums1[medin]+nums1[medin-1])/2;
+//   }
+//   else{
+//       result=nums1[Math.floor((nums1.length/2))]
+//     }
 
 
 
-return result
+// return result
  
-}
+// }
 
 
 
 
 
-  console.log(findMedianSortedArrays([1,3],[2,4,5],)) 
+//   console.log(findMedianSortedArrays([1,3],[2,4,5],)) 
+
+
+
+
+// 11. Container With Most Water
+var maxArea = function (height) {
+let left=0
+let area=0
+ let maxarea = 0;
+let right=height.length-1
+while(left<right){
+ 
+    width = Math.min(height[left], height[right]);
+    area=width * (right - left)
+    maxarea = Math.max(area, maxarea);
+  if (height[left] < height[right]) {
+  left++
+  }     else{
+    right--
+  }
+  if(left==right){
+    break
+  }
+  }
+  return maxarea;
+};
+
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
