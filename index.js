@@ -266,14 +266,12 @@ var plusOne = function (digits) {
 //    if(numsCopy[val]>inter_val){
 //     return val
 //     }
-    
+
 //   }
 //  return null
- 
+
 // };
 // console.log(majorityElement([2, 3, 5, 3, 3, 4, 5]));
-
-
 
 // var longestCommonPrefix = function(strs) {
 //   var prefix =strs[0]
@@ -283,14 +281,13 @@ var plusOne = function (digits) {
 //    if(prefix==''){
 //     return ''
 //   }
- 
+
 //   }}
- 
+
 //      return prefix
 
 // };
 //  console.log(longestCommonPrefix(["flgower","flgow","flgight"]));
-
 
 // class node{
 //   constructor(data,next=null){
@@ -332,24 +329,19 @@ var plusOne = function (digits) {
 //   let curr1=list1
 //   let curr2=list2
 //   let li=new linkedlist()
- 
+
 //     if(curr1.data<curr2.data){
 //      mergeTwoLists=li.addfirst(curr1)
 //      for (let i = 0; i < list2.length; i++) {
 //       mergeTwoLists.push(li.addlast(list2[i]))
-      
-//      }      }
-      
 
+//      }      }
 
 // return mergeTwoLists
 // }
 // console.log(mergeTwoLists([1,2,3],[5,3,4]));
 
-
-
-
-// //4. Median of Two Sorted Arrays.
+//4. Median of Two Sorted Arrays.
 // var findMedianSortedArrays = function ( nums1, nums2) {
 // let result=0
 //   for(let i=0; i<nums2.length;i++){
@@ -362,8 +354,7 @@ var plusOne = function (digits) {
 //     swap=nums1[i]
 //     nums1[i]=nums1[i+1]
 //     nums1[i+1]=swap
-    
-    
+
 //   }
 //  }
 // }
@@ -376,42 +367,78 @@ var plusOne = function (digits) {
 //       result=nums1[Math.floor((nums1.length/2))]
 //     }
 
-
-
 // return result
- 
+
 // }
 
-
-
-
-
-//   console.log(findMedianSortedArrays([1,3],[2,4,5],)) 
-
-
-
+//   console.log(findMedianSortedArrays([1,3],[2,4,5],))
 
 // 11. Container With Most Water
-var maxArea = function (height) {
-let left=0
-let area=0
- let maxarea = 0;
-let right=height.length-1
-while(left<right){
- 
-    width = Math.min(height[left], height[right]);
-    area=width * (right - left)
-    maxarea = Math.max(area, maxarea);
-  if (height[left] < height[right]) {
-  left++
-  }     else{
-    right--
-  }
-  if(left==right){
-    break
-  }
-  }
-  return maxarea;
-};
+// var maxArea = function (height) {
+//   let left = 0;
+//   let area = 0;
+//   let maxarea = 0;
+//   let right = height.length - 1;
+//   while (left < right) {
+//     width = Math.min(height[left], height[right]);
+//     area = width * (right - left);
+//     maxarea = Math.max(area, maxarea);
+//     if (height[left] < height[right]) {
+//       left++;
+//     } else {
+//       right--;
+//     }
+//     if (left == right) {
+//       break;
+//     }
+//   }
+//   return maxarea;
+// };
 
-console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+// console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+// 15. 3Sum
+var threeSum = function (nums) {
+
+const arr=[]
+let res=0
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length-i-1; j++) {
+      
+    if(nums[j]>nums[j+1]){
+sawp=nums[j]
+nums[j]=nums[j+1]
+nums[j+1]=sawp
+    }
+  }
+
+ 
+}
+
+  for (let i = 0; i < nums.length; i++) {
+    left = i+1;
+    right=nums.length-1
+    while (left < right) {
+      res = nums[left ] + nums[right];
+      if (res  +nums[i]==0) {
+         arr.push(nums[i], nums[left ], nums[right]);
+         std=nums[left]
+         send=nums[right]
+         while(left<right&&std==nums[left]){
+          left++
+         }
+           while (left < right && send == nums[right]) {
+             right--
+           }
+      } 
+      else if (res +nums[i]< 0) {
+       right--
+      } else {
+        left++;
+      }
+    }
+}
+return arr;
+
+
+};
+console.log(threeSum([-1,0,1,2,-1,-4]));
